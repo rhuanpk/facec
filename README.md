@@ -1,3 +1,3 @@
-# Repositório de Códigos Fonte
+# Programação II
 
-Este repositório está destinado a guardar os códigos fonte de exemplos (e/ou atividades) ministrados pelo Prof. Rhuan Ferrer na FACEC Faculdade.
+Repositório para guardar os códigos de exemplo e/ou atividades ministradas.
