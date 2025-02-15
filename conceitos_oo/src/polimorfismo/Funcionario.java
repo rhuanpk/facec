@@ -3,11 +3,16 @@ package polimorfismo;
 public class Funcionario extends Pessoa {
 
 	@Override
-	public void setNome(String nome) {
-		if (nome == "") {
-			nome = "sem nome";
-		}
-		super.setNome(nome);
+	public void corre() {
+		System.out.println("funcionario correndo");
+	}
+
+	public void funcionarioCorre() {
+		this.corre();
+	}
+
+	public void pessoaCorre() {
+		super.corre();
 	}
 
 }
