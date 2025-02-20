@@ -2,9 +2,6 @@ package pessoa;
 
 import java.util.ArrayList;
 
-import interfaces.Menu;
-import interfaces.SubMenu;
-
 public class Aluno extends Pessoa {
 
 	private ArrayList<String> professores;

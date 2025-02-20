@@ -1,8 +1,8 @@
 package main;
 
-import menu.Secretaria;
 import menu.Aluno;
 import menu.Professor;
+import menu.Secretaria;
 
 public class Main {
 
