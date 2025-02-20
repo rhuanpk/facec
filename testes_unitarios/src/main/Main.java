@@ -19,6 +19,9 @@ public class Main {
 		System.err.println(mustang);
 		Thread.sleep(1000);
 
+		mustang.printAutonomia(150, 7);
+		Thread.sleep(1000);
+
 		Harley roadster = new Harley("1200", "vermelha");
 		System.out.println(roadster);
 		Thread.sleep(1000);
@@ -29,6 +32,9 @@ public class Main {
 
 		roadster.frear();
 		System.err.println(roadster);
+		Thread.sleep(1000);
+
+		roadster.printAutonomia(230, 10);
 		Thread.sleep(1000);
 
 	}
