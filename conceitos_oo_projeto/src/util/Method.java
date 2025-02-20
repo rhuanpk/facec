@@ -62,16 +62,18 @@ public final class Method {
 		System.out.flush();
 	}
 
-	public static int lerInt(String message) throws InvalidOption {
+	public static int lerInt(String message) throws Exception {
 		try {
 			if (message != null && !message.isEmpty() || !message.isBlank())
 				System.out.print(message);
 			int resposta = sc.nextInt();
 			System.out.println();
 			return resposta;
-		} catch (InputMismatchException ime) {
+		} catch (InputMismatchException e) {
 			sc.next();
-			throw new exception.InvalidOption();
+			throw new Exception();
+		} catch (Exception e) {
+			throw e;
 		}
 	}
 
@@ -82,7 +84,7 @@ public final class Method {
 				throw new exception.InvalidOption();
 			System.out.println();
 			return escolha;
-		} catch (InputMismatchException ime) {
+		} catch (InputMismatchException e) {
 			sc.next();
 			throw new exception.InvalidOption();
 		}
