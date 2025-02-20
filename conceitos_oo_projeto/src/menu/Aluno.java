@@ -1,8 +1,5 @@
 package menu;
 
-import java.beans.PropertyEditor;
-import java.beans.PropertyEditorManager;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,6 +9,8 @@ import exception.ResourceUnexists;
 import interfaces.SubMenu;
 
 public class Aluno implements SubMenu {
+
+	private static final Scanner sc = new Scanner(System.in);
 
 	private static ArrayList<pessoa.Aluno> alunos = new ArrayList<>();
 
@@ -31,27 +30,29 @@ public class Aluno implements SubMenu {
 		util.Method.continueEnter();
 	}
 
-	private pessoa.Aluno pegarAluno() throws ResourceUnexists {
+	private result.Aluno pegarAluno() throws ResourceUnexists {
 		while (true) {
 			int id;
 			try {
 				id = util.Method.lerInt("Aluno ID: ");
-			} catch (Exception e) {
+				for (int index = 0; index < alunos.size(); index++) {
+					pessoa.Aluno aluno = alunos.get(index);
+					if (aluno.getId() == id) {
+						return new result.Aluno(index, aluno);
+					}
+				}
+				throw new ResourceUnexists();
+			} catch (ReadInt e) {
+				System.out.println(e.getMessage());
+				util.Method.continueEnter();
 				continue;
 			}
-			for (int index = 0; index < alunos.size(); index++) {
-				pessoa.Aluno aluno = alunos.get(index);
-				if (aluno.getId() == id) {
-					return aluno;
-				}
-			}
-			throw new ResourceUnexists();
 		}
 	}
 
 	private void buscarAluno() {
 		try {
-			pessoa.Aluno aluno = pegarAluno();
+			pessoa.Aluno aluno = pegarAluno().getAluno();
 			aluno.printInfos();
 			System.out.println();
 			util.Method.continueEnter();
@@ -64,70 +65,77 @@ public class Aluno implements SubMenu {
 	private void atualizarAluno() {
 		while (true) {
 			try {
-				pessoa.Aluno aluno = pegarAluno();
-				Field[] campos = aluno.getClass().getDeclaredFields();
-				for (int index = 0; index < campos.length; index++) {
-					System.out.println(index + 1 + ". " + campos[index].getName().toUpperCase());
-				}
+				int alunoIndex = pegarAluno().getIndex();
+				System.out.println("1. Nome");
+				System.out.println("2. Idade");
+				System.out.println("3. Cursos");
+				System.out.println("4. Professores");
 				System.out.println("0. Voltar");
 				int campoIndex = util.Method.lerInt("\nCampo: ");
 				if (campoIndex == 0)
 					break;
-				if (campoIndex < 1 || campoIndex > campos.length) {
+				if (campoIndex < 1 || campoIndex > 4) {
 					InvalidOption invalidOption = new InvalidOption();
 					System.out.println(invalidOption.getMessage());
 					util.Method.continueEnter();
 					continue;
 				}
-				Scanner sc = new Scanner(System.in);
-				System.out.print("Novo valor: ");
-				String novoValor = sc.nextLine();
-				String campoNome = campos[campoIndex - 1].getName();
-				Field campoEscolhido = aluno.getClass().getDeclaredField(campoNome);
-				campoEscolhido.setAccessible(false);
-				PropertyEditor editor = PropertyEditorManager.findEditor(campoEscolhido.getType());
-				if (editor == null) {
-					System.out.println("Tipo de dado inválido!");
-					util.Method.continueEnter();
-					continue;
+				switch (campoIndex) {
+				case 1:
+					System.out.print("Novo nome: ");
+					String nome = sc.nextLine();
+					alunos.get(alunoIndex).setNome(nome);
+					break;
+				case 2:
+					System.out.print("Nova idade: ");
+					String idade = sc.nextLine();
+					alunos.get(alunoIndex).setIdade(Integer.parseInt(idade));
+					break;
+				case 3:
+					ArrayList<String> cursos = new ArrayList<>();
+					System.out.println("Para encerrar: <ENTER>");
+					while (true) {
+						System.out.print("Add curso: ");
+						String curso = sc.nextLine();
+						if (curso.isEmpty() || curso.isBlank())
+							break;
+						cursos.add(curso);
+					}
+					alunos.get(alunoIndex).setCursos(cursos);
+					break;
+				case 4:
+					ArrayList<String> professores = new ArrayList<>();
+					System.out.println("Para encerrar: <ENTER>");
+					while (true) {
+						System.out.print("Add professor: ");
+						String curso = sc.nextLine();
+						if (curso.isEmpty() || curso.isBlank())
+							break;
+						professores.add(curso);
+					}
+					alunos.get(alunoIndex).setProfessores(professores);
+					break;
 				}
-				editor.setAsText(novoValor);
-				campoEscolhido.set(aluno, editor.getValue());
-				sc.close();
-			} catch (ReadInt e) {
-				System.out.println(e.getMessage());
-				util.Method.continueEnter();
-				continue;
+				System.out.println();
 			} catch (ResourceUnexists e) {
 				System.out.println(e.getMessage());
 				util.Method.continueEnter();
 				break;
-			} catch (NoSuchFieldException | SecurityException e) {
-				System.out.println("Erro ao pegar o campo!");
+			} catch (ReadInt e) {
+				System.out.println(e.getMessage());
 				util.Method.continueEnter();
-				break;
-			} catch (IllegalArgumentException | IllegalAccessException e) {
-				System.out.println("Erro na definição do campo!");
-				util.Method.continueEnter();
-				break;
-			} catch (Exception e) {
-				System.out.println("Erro ao pegar os campos!");
+				continue;
+			} catch (NumberFormatException e) {
+				System.out.println("Valor passado não é inteiro!");
 				util.Method.continueEnter();
 				break;
 			}
 		}
-
 	}
 
 	private void deletarAluno() {
 		try {
-			pessoa.Aluno aluno = pegarAluno();
-			for (int index = 0; index < alunos.size(); index++) {
-				pessoa.Aluno item = alunos.get(index);
-				if (item.getId() == aluno.getId()) {
-					alunos.remove(index);
-				}
-			}
+			alunos.remove(pegarAluno().getIndex());
 		} catch (ResourceUnexists e) {
 			System.out.println(e.getMessage());
 			util.Method.continueEnter();

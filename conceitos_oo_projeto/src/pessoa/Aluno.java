@@ -11,6 +11,7 @@ public class Aluno extends Pessoa {
 
 	public Aluno() {
 		super(tipoAluno);
+		setProfessores(null);
 	}
 
 	public Aluno(String nome, int idade, ArrayList<String> cursos, ArrayList<String> professores) {
@@ -29,6 +30,10 @@ public class Aluno extends Pessoa {
 	}
 
 	public void setProfessores(ArrayList<String> professores) {
+		if (this.professores == null)
+			this.professores = new ArrayList<String>();
+		if (professores == null)
+			return;
 		professores.forEach(professor -> {
 			if (professor.isEmpty() || professor.isBlank())
 				professor = "N/A";

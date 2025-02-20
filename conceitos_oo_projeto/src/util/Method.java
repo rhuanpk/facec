@@ -2,9 +2,11 @@ package util;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import exception.InvalidOption;
+import exception.ReadInt;
 import interfaces.Menu;
 import interfaces.SubMenu;
 
@@ -62,7 +64,7 @@ public final class Method {
 		System.out.flush();
 	}
 
-	public static int lerInt(String message) throws Exception {
+	public static int lerInt(String message) throws ReadInt {
 		try {
 			if (message != null && !message.isEmpty() || !message.isBlank())
 				System.out.print(message);
@@ -71,7 +73,11 @@ public final class Method {
 			return resposta;
 		} catch (InputMismatchException e) {
 			sc.next();
-			throw new Exception();
+			throw new ReadInt();
+		} catch (NoSuchElementException e) {
+			throw new ReadInt();
+		} catch (IllegalStateException e) {
+			throw e;
 		} catch (Exception e) {
 			throw e;
 		}

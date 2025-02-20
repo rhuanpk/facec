@@ -101,13 +101,15 @@ public abstract class Pessoa implements Acoes {
 	}
 
 	public void setCursos(ArrayList<String> cursos) {
-		if (cursos != null) {
-			cursos.forEach(curso -> {
-				if (curso.isEmpty() || curso.isBlank())
-					curso = "N/A";
-				this.cursos.add(curso);
-			});
-		}
+		if (this.cursos == null)
+			this.cursos = new ArrayList<String>();
+		if (cursos == null)
+			return;
+		cursos.forEach(curso -> {
+			if (curso.isEmpty() || curso.isBlank())
+				curso = "N/A";
+			this.cursos.add(curso);
+		});
 	}
 
 	public void appendCursos(ArrayList<String> cursos) {

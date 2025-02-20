@@ -13,6 +13,8 @@ import interfaces.SubMenu;
 
 public class Professor implements SubMenu {
 
+	private static final Scanner sc = new Scanner(System.in);
+
 	private static ArrayList<pessoa.Professor> professores = new ArrayList<>();
 
 	private void addProfessor() {
@@ -31,27 +33,29 @@ public class Professor implements SubMenu {
 		util.Method.continueEnter();
 	}
 
-	private pessoa.Professor pegarProfessor() throws ResourceUnexists {
+	private result.Professor pegarProfessor() throws ResourceUnexists {
 		while (true) {
 			int id;
 			try {
 				id = util.Method.lerInt("Professor ID: ");
-			} catch (Exception e) {
+				for (int index = 0; index < professores.size(); index++) {
+					pessoa.Professor professor = professores.get(index);
+					if (professor.getId() == id) {
+						return new result.Professor(index, professor);
+					}
+				}
+				throw new ResourceUnexists();
+			} catch (ReadInt e) {
+				System.out.println(e.getMessage());
+				util.Method.continueEnter();
 				continue;
 			}
-			for (int index = 0; index < professores.size(); index++) {
-				pessoa.Professor professor = professores.get(index);
-				if (professor.getId() == id) {
-					return professor;
-				}
-			}
-			throw new ResourceUnexists();
 		}
 	}
 
 	private void buscarProfessor() {
 		try {
-			pessoa.Professor professor = pegarProfessor();
+			pessoa.Professor professor = pegarProfessor().getProfessor();
 			professor.printInfos();
 			System.out.println();
 			util.Method.continueEnter();
@@ -64,70 +68,77 @@ public class Professor implements SubMenu {
 	private void atualizarProfessor() {
 		while (true) {
 			try {
-				pessoa.Professor professor = pegarProfessor();
-				Field[] campos = professor.getClass().getDeclaredFields();
-				for (int index = 0; index < campos.length; index++) {
-					System.out.println(index + 1 + ". " + campos[index].getName().toUpperCase());
-				}
+				int professorIndex = pegarProfessor().getIndex();
+				System.out.println("1. Nome");
+				System.out.println("2. Idade");
+				System.out.println("3. Cursos");
+				System.out.println("4. Alunos");
 				System.out.println("0. Voltar");
 				int campoIndex = util.Method.lerInt("\nCampo: ");
 				if (campoIndex == 0)
 					break;
-				if (campoIndex < 1 || campoIndex > campos.length) {
+				if (campoIndex < 1 || campoIndex > 4) {
 					InvalidOption invalidOption = new InvalidOption();
 					System.out.println(invalidOption.getMessage());
 					util.Method.continueEnter();
 					continue;
 				}
-				Scanner sc = new Scanner(System.in);
-				System.out.print("Novo valor: ");
-				String novoValor = sc.nextLine();
-				String campoNome = campos[campoIndex - 1].getName();
-				Field campoEscolhido = professor.getClass().getDeclaredField(campoNome);
-				campoEscolhido.setAccessible(false);
-				PropertyEditor editor = PropertyEditorManager.findEditor(campoEscolhido.getType());
-				if (editor == null) {
-					System.out.println("Tipo de dado inválido!");
-					util.Method.continueEnter();
-					continue;
+				switch (campoIndex) {
+				case 1:
+					System.out.print("Novo nome: ");
+					String nome = sc.nextLine();
+					professores.get(professorIndex).setNome(nome);
+					break;
+				case 2:
+					System.out.print("Nova idade: ");
+					String idade = sc.nextLine();
+					professores.get(professorIndex).setIdade(Integer.parseInt(idade));
+					break;
+				case 3:
+					ArrayList<String> cursos = new ArrayList<>();
+					System.out.println("Para encerrar: <ENTER>");
+					while (true) {
+						System.out.print("Add curso: ");
+						String curso = sc.nextLine();
+						if (curso.isEmpty() || curso.isBlank())
+							break;
+						cursos.add(curso);
+					}
+					professores.get(professorIndex).setCursos(cursos);
+					break;
+				case 4:
+					ArrayList<String> alunos = new ArrayList<>();
+					System.out.println("Para encerrar: <ENTER>");
+					while (true) {
+						System.out.print("Add aluno: ");
+						String curso = sc.nextLine();
+						if (curso.isEmpty() || curso.isBlank())
+							break;
+						alunos.add(curso);
+					}
+					professores.get(professorIndex).setAlunos(alunos);
+					break;
 				}
-				editor.setAsText(novoValor);
-				campoEscolhido.set(professor, editor.getValue());
-				sc.close();
-			} catch (ReadInt e) {
-				System.out.println(e.getMessage());
-				util.Method.continueEnter();
-				continue;
+				System.out.println();
 			} catch (ResourceUnexists e) {
 				System.out.println(e.getMessage());
 				util.Method.continueEnter();
 				break;
-			} catch (NoSuchFieldException | SecurityException e) {
-				System.out.println("Erro ao pegar o campo!");
+			} catch (ReadInt e) {
+				System.out.println(e.getMessage());
 				util.Method.continueEnter();
-				break;
-			} catch (IllegalArgumentException | IllegalAccessException e) {
-				System.out.println("Erro na definição do campo!");
-				util.Method.continueEnter();
-				break;
-			} catch (Exception e) {
-				System.out.println("Erro ao pegar os campos!");
+				continue;
+			} catch (NumberFormatException e) {
+				System.out.println("Valor passado não é inteiro!");
 				util.Method.continueEnter();
 				break;
 			}
 		}
-
 	}
 
 	private void deletarProfessor() {
 		try {
-			pessoa.Professor professor = pegarProfessor();
-			for (int index = 0; index < professores.size(); index++) {
-				pessoa.Professor item = professores.get(index);
-				if (item.getId() == professor.getId()) {
-					professores.remove(index);
-				}
-			}
+			professores.remove(pegarProfessor().getIndex());
 		} catch (ResourceUnexists e) {
 			System.out.println(e.getMessage());
 			util.Method.continueEnter();
