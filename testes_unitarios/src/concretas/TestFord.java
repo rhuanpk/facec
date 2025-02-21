@@ -8,7 +8,7 @@ class TestFord {
 
 	@Test
 	void testAutonomia() {
-		Ford fiesta = new Ford("99", "cinza");
+		Ford fiesta = new Ford("99", "prata");
 		float resultado = fiesta.autonomia(100, 10);
 		assertEquals(10f, resultado);
 	}
