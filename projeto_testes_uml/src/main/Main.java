@@ -1,14 +1,14 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import concretas.Carro;
 import concretas.Moto;
+import excecoes.IllegalState;
 
 public class Main {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IllegalState {
 
 		Carro mustang = new Carro("Ford", "Mach1", "Preto");
 		System.out.println(mustang);
@@ -26,7 +26,7 @@ public class Main {
 		System.out.println(mustang);
 		Thread.sleep(1000);
 
-		mustang.acelerar(100, 180);
+		mustang.printAcelerar(100, 180);
 		System.err.println(mustang);
 		Thread.sleep(1000);
 
@@ -41,7 +41,7 @@ public class Main {
 		mustang.printAutonomia(150, 7);
 		Thread.sleep(1000);
 
-		Moto roadster = new Moto("Harley", "1200", "vermelha");
+		Moto roadster = new Moto("Harley", "1200", "Vermelho");
 		System.out.println(roadster);
 		Thread.sleep(1000);
 
@@ -57,7 +57,7 @@ public class Main {
 		System.out.println(roadster);
 		Thread.sleep(1000);
 
-		roadster.acelerar(100, 180);
+		roadster.printAcelerar(100, 180);
 		System.err.println(roadster);
 		Thread.sleep(1000);
 
