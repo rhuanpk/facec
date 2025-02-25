@@ -1,9 +1,11 @@
 package interfaces;
 
+import excecoes.IllegalState;
+
 public interface Veiculo {
 
-	public void acelerar(float km, int velocidade);
+	public float acelerar(float km, int velocidade) throws IllegalState;
 
-	public void frear();
+	public void frear() throws IllegalState;
 
 }
