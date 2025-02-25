@@ -74,7 +74,7 @@ class TestMoto {
 		List<String> listaEspecificacoes = List.of("a", "b", "c");
 		ArrayList<String> especificacoes = new ArrayList<>(listaEspecificacoes);
 		moto.setEspecificacoes(especificacoes);
-		assertArrayEquals(listaEspecificacoes.toArray(), moto.getEspecificacoes().toArray());
+		assertArrayEquals(especificacoes.toArray(), moto.getEspecificacoes().toArray());
 	}
 
 }
