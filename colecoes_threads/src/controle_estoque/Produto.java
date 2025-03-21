@@ -14,7 +14,7 @@ public class Produto {
 	private int quantidade;
 	private boolean skuDefinido;
 
-	public Produto(String nome, String sku, int quantidade) throws IllegalArgumentException {
+	public Produto(String nome, String sku, int quantidade) throws IllegalArgumentException, IllegalStateException {
 		setNome(nome);
 		setSku(sku);
 		setCodigo();
@@ -34,7 +34,7 @@ public class Produto {
 		return sku;
 	}
 
-	private void setSku(String sku) {
+	private void setSku(String sku) throws IllegalStateException, IllegalArgumentException {
 		ThrowNew.ifTrueBoolean(skuDefinido, "skuDefinido");
 		ThrowNew.ifBlankString(sku, "sku");
 		this.skuDefinido = true;
@@ -53,7 +53,7 @@ public class Produto {
 		return quantidade;
 	}
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(int quantidade) throws IllegalArgumentException {
 		ThrowNew.ifLessThanZero(quantidade, "quantidade");
 		this.quantidade = quantidade;
 	}
