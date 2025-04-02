@@ -13,7 +13,7 @@ public class Prompt {
 	}
 
 	public static String string() throws NoSuchElementException, IllegalStateException {
-		System.out.print("String input: ");
+		System.out.print("string input: ");
 		return nextString();
 	}
 
@@ -27,7 +27,7 @@ public class Prompt {
 	}
 
 	public static int integer() throws InputMismatchException, NoSuchElementException, IllegalStateException {
-		System.out.print("Integer input: ");
+		System.out.print("integer input: ");
 		return nextInt();
 	}
 

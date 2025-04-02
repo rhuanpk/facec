@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/tmp/tmp/Untitled.jar"/>
+	<classpathentry kind="lib" path="/bibliotecas_export/out/jars/Prompt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
