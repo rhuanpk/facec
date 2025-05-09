@@ -11,7 +11,7 @@ public class NativoAmbos {
 
 	public static void main(String[] args) throws SecurityException, IOException {
 
-		Logger logger = Logger.getLogger(NativoArquivo.class.getName());
+		Logger logger = Logger.getLogger(NativoAmbos.class.getName());
 		LogManager.getLogManager().reset();
 
 		FileHandler fileHandler = new FileHandler("/tmp/tmp/file.log");
