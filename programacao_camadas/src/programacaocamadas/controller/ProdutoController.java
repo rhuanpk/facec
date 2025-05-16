@@ -5,28 +5,31 @@ import programacaocamadas.view.ProdutoView;
 
 public class ProdutoController {
 
-	private Produto produto;
+	private Produto model;
 	private ProdutoView view;
 
 	public ProdutoController(Produto produto, ProdutoView view) {
-		this.produto = produto;
+		this.model = produto;
 		this.view = view;
 	}
 
-	public void atualizarNome(String nome) {
-		produto.setNome(nome);
+	public void atualizarNome() {
+		String nome = view.readNome();
+		model.setNome(nome);
 	}
 
-	public void atualizarPreco(double preco) {
-		produto.setPreco(preco);
+	public void atualizarPreco() {
+		double preco = view.readPreco();
+		model.setPreco(preco);
 	}
 
-	public void atualizarSku(String sku) {
-		produto.setSku(sku);
+	public void atualizarSku() {
+		String sku = view.readSku();
+		model.setSku(sku);
 	}
 
 	public void exibirProduto() {
-		view.exibirProduto(produto.getNome(), produto.getPreco(), produto.getSku());
+		view.printProduto(model.getNome(), model.getPreco(), model.getSku());
 	}
 
 }

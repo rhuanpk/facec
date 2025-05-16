@@ -6,12 +6,6 @@ public class Produto {
 	private double preco;
 	private String sku;
 
-	public Produto(String nome, double preco, String sku) {
-		setNome(nome);
-		setPreco(preco);
-		setSku(sku);
-	}
-
 	public String getNome() {
 		return nome;
 	}

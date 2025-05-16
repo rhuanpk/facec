@@ -8,14 +8,13 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Produto produto = new Produto("Teclado", 100, "TCLD1");
+		Produto produto = new Produto();
 		ProdutoView view = new ProdutoView();
 		ProdutoController controller = new ProdutoController(produto, view);
 
-		controller.exibirProduto();
-		controller.atualizarNome("Teclado Vermelho");
-		controller.atualizarPreco(150);
-		controller.atualizarSku("TCLD2");
+		controller.atualizarNome();
+		controller.atualizarPreco();
+		controller.atualizarSku();
 		controller.exibirProduto();
 
 	}

@@ -1,12 +1,32 @@
 package programacaocamadas.view;
 
+import java.util.Scanner;
+
 public class ProdutoView {
 
-	public void exibirProduto(String nome, double preco, String sku) {
+	private Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Produto: " + nome + " [" + sku + "]");
-		System.out.println("Preço: $ " + preco);
+	public String readNome() {
+		System.out.print("nome do produto: ");
+		return scanner.nextLine();
+	}
 
+	public double readPreco() {
+		System.out.print("preco do produto: ");
+		double preco = scanner.nextDouble();
+		scanner.nextLine();
+		return preco;
+	}
+
+	public String readSku() {
+		System.out.print("sku do produto: ");
+		return scanner.nextLine();
+	}
+
+	public void printProduto(String nome, double preco, String sku) {
+		System.out.println("----- detalhes -----");
+		System.out.println("produto: " + nome + " [" + sku + "]");
+		System.out.println("preço: $" + preco);
 	}
 
 }
