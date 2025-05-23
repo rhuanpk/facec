@@ -108,5 +108,6 @@ buildNumber.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse,maven
 
+*.log.*
 !/*/out/jars/*.jar
 !/*/lib/jars/*.jar

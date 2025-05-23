@@ -1,14 +1,12 @@
 package bancodados.util;
 
-import java.util.Scanner;
+import java.util.NoSuchElementException;
 
 public class Terminal {
 
-	private static Scanner scanner = new Scanner(System.in);
-
-	public static void wrongOption() {
-		System.err.print("opcao invalida <enter> ");
-		scanner.nextLine();
+	public static void wrongOption() throws NoSuchElementException, IllegalStateException {
+		System.err.print("invalid option <enter> ");
+		Input.scanner.nextLine();
 	}
 
 }
