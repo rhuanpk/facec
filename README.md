@@ -1,5 +1,3 @@
-# Repositório de Códigos Fonte
+# Introdução ao Desenvolvimento Web
 
-Este repositório está destinado a guardar os códigos fonte de exemplos (e/ou atividades) ministrados pelo Prof. Rhuan Ferrer na FACEC Faculdade.
-
-IMPORTANTE: Para acessar o conteúdo, selecione a _branch_ referente.
+Repositório para guardar os códigos de exemplo e/ou atividades ministradas.
