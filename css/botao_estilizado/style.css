@@ -1,0 +1,9 @@
+button {
+	background-color: green;
+	color: white;
+	border-radius: 20px;
+}
+
+button:hover {
+	background-color: blue;
+}
