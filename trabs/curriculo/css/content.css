@@ -1,0 +1,24 @@
+main {
+	background-color: color-mix(in srgb, var(--background-color), white 25%);
+	padding: var(--padding-section);
+}
+
+.content__subtitle {
+	color: var(--accent-color);
+
+	/* background-color: rgb(0 0 0 / .10); */
+	/* color: var(--accent-color); */
+	/* box-shadow: 0 0 16px 12px rgb(0 0 0 / .10); */
+	/* border-radius: 16px; */
+	/* padding: 4px 12px; */
+
+	/* background-color: rgb(0 0 0 / .25); */
+	/* color: var(--accent-color); */
+	/* padding: 4px 12px; */
+	/* border-bottom: 2px solid var(--accent-color); */
+}
+
+.content__skills-list {
+	list-style: '\2705\0020' inside;
+	padding-left: 0;
+}

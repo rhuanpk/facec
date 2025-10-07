@@ -1,0 +1,36 @@
+.hero {
+	background-color: var(--background-color);
+	padding: var(--padding-section);
+}
+
+.hero__content {
+	text-align: center;
+}
+
+.hero__img {
+	border-radius: 50%;
+	width: 240px;
+}
+
+.hero__contact>address>ul {
+	list-style-type: none;
+	padding-left: 0;
+
+	& li {
+		margin: 8px 0;
+	}
+}
+
+.hero__contact>address>ul a {
+	color: var(--accent-color);
+	text-decoration: none;
+
+	display: inline-block;
+	/* padding: 4px 4px 4px 0; */
+	padding: 4px;
+	padding-left: 0;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

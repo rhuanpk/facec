@@ -1,0 +1,32 @@
+:root {
+	--primary-color: #ddd;
+	--accent-color: darkturquoise;
+	--background-color: #333;
+	--padding-section: 52px 10%;
+}
+
+body {
+	color: var(--primary-color);
+	font-family: sans-serif;
+	font-size: 125%;
+	line-height: 1.5;
+
+	width: 80%;
+	margin: auto;
+}
+
+.layout-container {
+	overflow: auto;
+}
+
+.layout-left {
+	width: 45%;
+	float: left;
+}
+
+.layout-right {
+	margin-left: 65%;
+
+	/* width: 35%; */
+	/* float: right; */
+}
