@@ -12,11 +12,32 @@
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/content.css">
 	<link rel="stylesheet" href="assets/icons/style.css">
+
+	<script src="js/script.js" defer></script>
 </head>
 
-<body>
+<body class="dark">
 	<main>
 		<header>
+			<div class="header__btns">
+				<button id="btn-theme">
+					<svg class="icon">
+						<use xlink:href="assets/icons/icons.svg#moon"></use>
+					</svg>
+				</button>
+				<div>
+					<button>
+						<svg class="icon">
+							<use xlink:href="assets/icons/icons.svg#copy"></use>
+						</svg>
+					</button>
+					<button>
+						<svg class="icon">
+							<use xlink:href="assets/icons/icons.svg#share"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
 			<img class="header__img" src="assets/images/profile.png" alt="Rhuan Ferrer">
 			<h1>Rhuan Ferrer</h1>
 			<p class="header__desc">

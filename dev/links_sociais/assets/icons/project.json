@@ -9,6 +9,11 @@
       "selection": [
         {
           "order": 0,
+          "id": 4,
+          "prevSize": 24
+        },
+        {
+          "order": 0,
           "id": 3,
           "prevSize": 24,
           "name": "menu"
@@ -39,6 +44,21 @@
       "height": 1024,
       "prevSize": 32,
       "icons": [
+        {
+          "id": 4,
+          "paths": [
+            "M810 896v-598h-468v598h468zM810 214q34 0 60 25t26 59v598q0 34-26 60t-60 26h-468q-34 0-60-26t-26-60v-598q0-34 26-59t60-25h468zM682 42v86h-512v598h-84v-598q0-34 25-60t59-26h512z"
+          ],
+          "attrs": [
+            {}
+          ],
+          "isMulticolor": false,
+          "isMulticolor2": false,
+          "tags": [
+            "content_copy"
+          ],
+          "grid": 24
+        },
         {
           "id": 3,
           "paths": [
@@ -308,25 +328,25 @@
     {
       "selection": [
         {
-          "order": 56,
+          "order": 0,
           "id": 14,
           "name": "linkedin",
           "prevSize": 32
         },
         {
-          "order": 57,
+          "order": 0,
           "id": 2,
           "name": "email",
           "prevSize": 48
         },
         {
-          "order": 58,
+          "order": 0,
           "id": 8,
           "name": "github",
           "prevSize": 32
         },
         {
-          "order": 59,
+          "order": 0,
           "id": 11,
           "name": "phone",
           "prevSize": 28

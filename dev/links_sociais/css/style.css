@@ -2,13 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 :root {
+	--font-size-icon: 1.6em;
+	--border-radius: 8px;
+}
+
+:root:has(.dark) {
 	--primary-color: #333;
 	--primary-color-dark: #222;
 	--primary-color-light: #ddd;
 	--accent-color: limegreen;
+}
 
-	--font-size-icon: 1.6em;
-	--border-radius: 8px;
+:root:has(.light) {
+	--primary-color: #ccc;
+	--primary-color-dark: #ddd;
+	--primary-color-light: #333;
+	--accent-color: forestgreen;
 }
 
 body {
@@ -16,6 +25,9 @@ body {
 	color: var(--primary-color-light);
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
+
+	transition-property: background-color, color;
+	transition-duration: 500ms;
 
 	/* display: flex; */
 	/* justify-content: center; */
