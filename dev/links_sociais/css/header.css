@@ -3,10 +3,11 @@
 
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .header__btns>div>* {
-	margin-left: .4em;
+	margin: 0 0 .4em .4em;
 }
 
 .header__btns button {
