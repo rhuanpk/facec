@@ -1,5 +1,10 @@
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
 .content__sub {
-	font-family: 'Numans', sans-serif;
+	font-family: 'Ysabeau Infant', sans-serif;
 	font-weight: normal;
 	font-style: italic;
 }
@@ -42,4 +47,15 @@
 
 .content__text {
 	margin: auto;
+}
+
+@media (width > 48em) {
+	.content {
+		flex-direction: row;
+		gap: 20px;
+
+		&>* {
+			flex-grow: 1;
+		}
+	}
 }

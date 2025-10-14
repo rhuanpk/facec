@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Numans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant&display=swap');
 
 :root {
 	--font-size-icon: 1.6em;
@@ -46,4 +46,11 @@ main {
 
 .icon {
 	font-size: var(--font-size-icon);
+}
+
+@media (width > 48em) {
+	main {
+		max-width: 800px;
+		width: 75%;
+	}
 }
