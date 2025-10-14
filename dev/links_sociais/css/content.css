@@ -14,6 +14,8 @@
 }
 
 .content__link {
+	--padding: .8em;
+
 	background-color: color-mix(in srgb, var(--primary-color), white 10%);
 	color: inherit;
 	font-weight: bold;
@@ -21,8 +23,9 @@
 	letter-spacing: .1em;
 	border-radius: var(--border-radius);
 
-	display: block;
-	padding: .8em 10dvw;
+	padding: var(--padding);
+	display: flex;
+	align-items: center;
 
 	transform: scale(100%);
 	transition-property: background-color, transform;
@@ -35,4 +38,9 @@
 
 		transform: scale(105%);
 	}
+
+}
+
+.content__link>.icon {
+	margin-right: calc(50% - var(--padding) - var(--font-size-icon));
 }

@@ -7,6 +7,7 @@
 	--primary-color-light: #ddd;
 	--accent-color: limegreen;
 
+	--font-size-icon: 1.6em;
 	--border-radius: 8px;
 }
 
@@ -15,18 +16,22 @@ body {
 	color: var(--primary-color-light);
 	font-family: 'Montserrat', sans-serif;
 	text-align: center;
+
+	/* display: flex; */
+	/* justify-content: center; */
+	/* align-items: center; */
 }
 
 main {
 	background-color: var(--primary-color);
 	border-radius: var(--border-radius);
 
-	width: fit-content;
+	max-width: 400px;
+	width: 60%;
 	margin: 4em auto;
 	padding: 2em;
 }
 
 .icon {
-	font-size: 1.6em;
-	vertical-align: middle;
+	font-size: var(--font-size-icon);
 }
