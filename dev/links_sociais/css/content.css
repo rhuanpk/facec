@@ -1,0 +1,38 @@
+.content__sub {
+	font-family: 'Numans', sans-serif;
+	font-weight: normal;
+	font-style: italic;
+}
+
+.content__list {
+	list-style-type: none;
+	padding-left: 0;
+
+	&>li:not(:first-child) {
+		margin-top: .8em;
+	}
+}
+
+.content__link {
+	background-color: color-mix(in srgb, var(--primary-color), white 10%);
+	color: inherit;
+	font-weight: bold;
+	text-decoration: none;
+	letter-spacing: .1em;
+	border-radius: var(--border-radius);
+
+	display: block;
+	padding: .8em 10dvw;
+
+	transform: scale(100%);
+	transition-property: background-color, transform;
+	transition-duration: 250ms;
+
+	&:hover {
+		background-color: var(--primary-color-dark);
+		color: var(--accent-color);
+		font-weight: normal;
+
+		transform: scale(105%);
+	}
+}

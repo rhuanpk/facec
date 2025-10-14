@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Numans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+	--primary-color: #333;
+	--primary-color-dark: #222;
+	--primary-color-light: #ddd;
+	--accent-color: limegreen;
+
+	--border-radius: 8px;
+}
+
+body {
+	background-color: var(--primary-color-dark);
+	color: var(--primary-color-light);
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+}
+
+main {
+	background-color: var(--primary-color);
+	border-radius: var(--border-radius);
+
+	width: fit-content;
+	margin: 4em auto;
+	padding: 2em;
+}
+
+.icon {
+	font-size: 1.6em;
+	vertical-align: middle;
+}

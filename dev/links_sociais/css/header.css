@@ -1,0 +1,8 @@
+.header__img {
+	border-radius: 50%;
+	width: 8em;
+}
+
+.header__desc {
+	color: var(--accent-color);
+}
