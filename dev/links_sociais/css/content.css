@@ -38,9 +38,8 @@
 
 		transform: scale(105%);
 	}
-
 }
 
-.content__link>.icon {
-	margin-right: calc(50% - var(--padding) - var(--font-size-icon));
+.content__text {
+	margin: auto;
 }
