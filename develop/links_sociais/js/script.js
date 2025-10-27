@@ -7,16 +7,12 @@
 	let currentTheme = 'dark'
 
 	btnTheme.addEventListener('click', () => {
-		console.log('currentTheme', currentTheme)
-
 		if (currentTheme === 'dark') {
-			console.log('entrou sim')
 			root.classList.replace('dark', 'light')
 			currentTheme = 'light'
 			return
 		}
 
-		console.log('entrou nao')
 		root.classList.replace('light', 'dark')
 		currentTheme = 'dark'
 	})
