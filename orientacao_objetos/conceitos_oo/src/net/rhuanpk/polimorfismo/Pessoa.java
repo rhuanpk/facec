@@ -1,5 +1,7 @@
 package net.rhuanpk.polimorfismo;
 
+import java.util.Objects;
+
 public class Pessoa {
     protected String nome;
     protected int idade;
@@ -13,7 +15,7 @@ public class Pessoa {
     }
 
     public void setNome(String nome) {
-        if (nome == "") {
+        if (Objects.equals(nome, "")) {
             System.out.println("Erro: nome não poder ser vazio!");
             return;
         }
