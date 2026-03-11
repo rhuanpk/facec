@@ -10,6 +10,7 @@ public class Catalogo {
     }
 
     public Catalogo(ArrayList<Produto> produtos) {
+        this.produtos = new ArrayList<>();
         for (Produto produto : produtos) {
             adicionar(produto);
         }
@@ -23,13 +24,13 @@ public class Catalogo {
         produtos.add(produto);
     }
 
-    public void remover(Produto produto) {
-        produtos.remove(produto);
-    }
-
     public void listar() {
         for (int index = 0; index < produtos.size(); index++) {
             System.out.println(produtos.get(index));
         }
+    }
+
+    public void remover(Produto produto) {
+        produtos.remove(produto);
     }
 }

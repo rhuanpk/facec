@@ -10,7 +10,7 @@ public class Main {
         contatos.adicionar("Rhuan", 44999514013L);
         contatos.listar();
 
-        System.out.println("=== SEM MARIA ===");
+        System.out.println("=== SEM JOÃO ===");
         contatos.remover("João");
         contatos.listar();
     }
