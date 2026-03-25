@@ -1,0 +1,48 @@
+@startuml Sample
++interface IMotorizado {
+  +ligar()
+  +desligar()
+  +autonomia()
+}
+
++interface IVeiculo {
+  +acelerar()
+  +frear()
+}
+
++abstract class Veiculo {
+  -marca
+  -modelo
+  -cor
+  -movimento
+  -parado
+  -especificacoes
+  +tituloVeiculo()
+}
+
++abstract class Motorizado {
+  -ligado
+  -desligado
+}
+
++class Carro {
+  +printAcelerar()
+  +printAutonomia()
+}
+
++class Moto {
+  +printAcelerar()
+  +printAutonomia()
+}
+
++class IllegalState {
+  -{static} message
+}
+
+IVeiculo <|.. Veiculo
+Veiculo <|-- Motorizado
+IMotorizado <|.. Motorizado
+Motorizado <|-- Carro
+Motorizado <|-- Moto
+Exception <|-- IllegalState
+@enduml
