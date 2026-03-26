@@ -10,7 +10,7 @@ public abstract class Motorizado extends Veiculo {
         ligado = false;
     }
 
-    public void ligar() throws IllegalArgumentException {
+    public void ligar() throws IllegalStateException {
         if (ligado) {
             throw new IllegalStateException("Não é possível ligar veículo motorizado já ligado!");
         }
@@ -19,7 +19,7 @@ public abstract class Motorizado extends Veiculo {
         ligado = true;
     }
 
-    public void desligar() throws IllegalArgumentException {
+    public void desligar() throws IllegalStateException {
         if (!ligado) {
             throw new IllegalStateException("Não é possível desligar veículo motorizado já desligado");
         }
@@ -29,7 +29,7 @@ public abstract class Motorizado extends Veiculo {
     }
 
     @Override
-    public void acelerar() throws IllegalArgumentException {
+    public void acelerar() throws IllegalStateException {
         if (!ligado) {
             throw new IllegalStateException("Não é possível acelerar veículo motorizado desligado!");
         }

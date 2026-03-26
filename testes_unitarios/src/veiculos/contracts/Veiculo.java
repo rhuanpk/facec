@@ -6,17 +6,17 @@ public abstract class Veiculo {
     protected Integer ano;
     protected String cor;
 
-    //public Veiculo() {
-    //    marca = "";
-    //    modelo = "";
-    //    ano = 0;
-    //    cor = "";
-    //}
+    public Veiculo() {
+        marca = "";
+        modelo = "";
+        ano = 0;
+        cor = "";
+    }
 
     public abstract void acelerar();
 
     public String getMarca() {
-        return marca;
+        return marca.trim();
     }
 
     public void setMarca(String marca) throws IllegalArgumentException {
@@ -27,7 +27,7 @@ public abstract class Veiculo {
     }
 
     public String getModelo() {
-        return modelo;
+        return modelo.trim();
     }
 
     public void setModelo(String modelo) throws IllegalArgumentException {
@@ -49,7 +49,7 @@ public abstract class Veiculo {
     }
 
     public String getCor() {
-        return cor;
+        return cor.trim();
     }
 
     public void setCor(String cor) throws IllegalArgumentException {
