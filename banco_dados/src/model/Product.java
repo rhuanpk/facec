@@ -31,7 +31,7 @@ public class Product {
     }
 
     public void setId(long id) throws IllegalArgumentException {
-        if (price < 1) {
+        if (id < 1) {
             throw new IllegalArgumentException("id cant be less than 1");
         }
         this.id = id;

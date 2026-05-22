@@ -11,7 +11,7 @@ public class ProductView {
     }
 
     public String readSku() {
-        System.out.print("Product SKU: ");
+        System.out.print("Product sku: ");
         return scanner.nextLine();
     }
 
@@ -32,8 +32,7 @@ public class ProductView {
     public void print(ProductDTO product) {
         final String text = "===== PRODUCT =====\n" +
                 String.format("- Product: %s [%s]\n", product.name, product.sku) +
-                String.format("- Price: R$ %.2f\n", product.price) +
-                "===================";
+                String.format("- Price: R$ %.2f", product.price);
         System.out.println(text);
     }
 
