@@ -59,7 +59,7 @@ public class Menu {
         IO.println(prompt);
     }
 
-    // constructors
+    // getters & setters
     public String getPrompt() {
         return prompt;
     }
