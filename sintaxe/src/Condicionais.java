@@ -9,6 +9,14 @@ public class Condicionais {
             // ...
         }
 
+        // IF/ELSE KEYLESS
+        if (0 > 1) System.out.println();
+        else if (2 > 3) System.out.println();
+        else System.out.println();
+
+        // COMPARAÇÃO STRING
+        if ("hello".equals("world"));
+
         // OPERADOR/TERNÁRIO
         int n1 = (0 > 1) ? 42 : 43;
 
